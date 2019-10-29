@@ -136,6 +136,8 @@
   become: yes
   command: chkconfig nexus reset
   when: ansible_os_family == "RedHat"
+  notify:
+    - 'restart nexus'
   tags:
     - skip_ansible_lint
     - molecule-idempotence-notest
