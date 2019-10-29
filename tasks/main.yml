@@ -33,9 +33,22 @@
     mode="0755"
   tags: unpack
 
+- name: Register nexus folders
+  find:
+    paths: "{{ nexus_installation_dir }}"
+    file_type: directory
+    patterns: ".*nexus-.*"
+    excludes: "nexus-latest"
+    use_regex: yes
+  register: nexus_folders
+
+- name: Register latest nexus folder
+  set_fact:
+    nexus_latest: "{{ nexus_folders.files | sort(attribute='mtime') | last }}"
+
 - name: Update symlink nexus-latest
   file:
-    src: "{{ nexus_installation_dir }}/nexus-{{ nexus_version }}"
+    src: "{{ nexus_latest.path }}"
     dest:  "{{ nexus_installation_dir }}/nexus-latest"
     state: link
     force: yes
