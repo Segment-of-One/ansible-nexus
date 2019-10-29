@@ -48,7 +48,7 @@ Test molecule playbook with:
 
     molecule test
 
-This tests include `yamllint`, `ansible-lint`, a test run for the playbook and an idempotence test and some asserts to check after the installation.
+This tests include `yamllint`, `ansible-lint`, a test run (`converge`) for the playbook and an `idempotence` test and also some `verify` checks after the installation.
 
 License
 -------
