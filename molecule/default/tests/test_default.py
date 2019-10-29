@@ -10,4 +10,4 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 def test_nexus_installed(host):
     nexus = host.service('nexus')
     assert nexus.is_running
-    assert nexus.is_enabled
+
