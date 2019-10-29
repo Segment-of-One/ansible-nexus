@@ -82,6 +82,8 @@
     group="{{ nexus_os_group }}"
     mode="0755"
     recurse=true
+  tags:
+    - molecule-idempotence-notest
 
 - name: Set permissions and ownership on Nexus logs directory
   file:
