@@ -34,6 +34,22 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: jhinrichsen.nexus, nexus_installation_dir: '/opt' }
 
+Testing
+--------
+
+Testing is done with [molecule](https://molecule.readthedocs.io/en/stable/). 
+Install molecule with
+
+    pip install molecule
+
+Make also sure you have `docker` installed on your machine (and you can run docker commands).
+
+Test molecule playbook with:
+
+    molecule test
+
+This tests include `yamllint`, `ansible-lint`, a test run for the playbook and an idempotence test and some asserts to check after the installation.
+
 License
 -------
 
