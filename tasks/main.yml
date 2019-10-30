@@ -108,7 +108,7 @@
 
 - name: Configure port in nexus.properties
   lineinfile:
-    dest="{{ nexus_installation_dir }}/nexus-latest/conf/nexus.properties"
+    dest="{{ nexus_installation_dir }}/nexus-{{ nexus_version }}/conf/nexus.properties"
     line="application-port={{ nexus_port }}"
     regexp="application-port=.*"
     state=present
@@ -117,7 +117,7 @@
 
 - name: Configure workdir in nexus.properties
   lineinfile:
-    dest="{{ nexus_installation_dir }}/nexus-latest/conf/nexus.properties"
+    dest="{{ nexus_installation_dir }}/nexus-{{ nexus_version }}/conf/nexus.properties"
     line="nexus-work={{ nexus_working_dir }}"
     regexp="nexus-work=.*"
     state=present
