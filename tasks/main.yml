@@ -25,7 +25,7 @@
   unarchive:
     src="{{ nexus_download_dir }}/{{ nexus_package }}"
     dest="{{ nexus_installation_dir }}"
-    creates="{{ nexus_installation_dir }}/nexus-latest"
+    creates="{{ nexus_installation_dir }}/nexus-{{ nexus_version }}"
     force=no
     copy=false
     owner={{ nexus_os_user }}
